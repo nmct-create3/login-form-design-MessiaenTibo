@@ -1,12 +1,32 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
+@font-face {
+    font-family: "inter";
+    src: url("../fonts/Inter-Regular.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "inter";
+    src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+    font-weight: 700;
+}
 
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
-:root {}
+:root {
+    /* light theme */
+    --golabl-background: #F5F6FA;
+    --global-text-color: #20223a;
+    --global-selection-background: #3385FF;
+    --global-link-color: #3385FF;
+
+
+    /* dark theme */
+}
 
 /* CSS variables here */
 
@@ -23,12 +43,12 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: "inter", sans-serif;
     color: grey;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: var(--golabl-background);
 }
 
 *,
@@ -45,13 +65,13 @@ html {
 */
 
 ::-moz-selection {
-    background: HotPink;
+    background: var(--global-selection-background);
     color: white;
     text-shadow: none;
 }
 
 ::selection {
-    background: HotPink;
+    background: var(--global-selection-background);
     color: white;
     text-shadow: none;
 }
@@ -156,7 +176,7 @@ hr {
 }
 
 a {
-    color: HotPink;
+    color: var(--global-link-color);
     transition: all .1s ease-in-out;
 }
 
@@ -169,6 +189,12 @@ a:hover,
 a:focus {
     color: DeepPink;
 }
+
+label,
+input {
+    display: block;
+}
+
 
 /*------------------------------------*\
 #OBJECTS
@@ -422,6 +448,14 @@ a:focus {
     -webkit-appearance: none;
 }
 
+
+.o-button-sign{
+    background-color: #2E77E6;
+    color: white;
+    width: 100%;
+    padding: 14px 0;
+}
+
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
@@ -432,11 +466,55 @@ a:focus {
     Website main logo
 */
 
+.c-logo{
+    height: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.c-logo__symbool{
+    line-height: 100%;
+    display: block;
+}
+
+.c-logo__path--1{
+    fill: #20223a;
+}
+
+.c-logo__path--2{
+    fill: #3385FF;
+}
+
+.c-logo__path--3{
+    fill: #1B4186;
+}
+
 /*
     Component: Card
     ---
     Card with box shadow
 */
+
+.c-card{
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgb( 0, 0, 0 / .1);
+    box-shadow: 0 2px 4px rgba( 0, 0, 0, .1);
+}
+
+.c-card__header {
+    padding: 48px 48px 0;
+}
+
+.c-card__body {
+    padding: 48px 48px 24px;
+}
+
+.c-card__footer {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
 
 /*
     Component: Forms
@@ -444,15 +522,42 @@ a:focus {
     Everything form related here
 */
 
+.c-form-field--option {
+    display: flex;
+    gap: 8px;
+}
+
+form{
+
+}
+
 /*
     Component: Input
     ---
     Class to put on all input="text" like form inputs
 */
 
-.c-input {}
+.c-input {
+    /* safari */
+    -webkit-appearance: none;
+    /* firefox */
+    -moz-appearance: none;
+    /*  */
+    appearance: none;
+    width: 100%;
+    border: 1px solid #E2E3E7;
+    border-radius: 2px;
+    font-family: "inter";
+    line-height: 24px;
+    padding: 11px 16px;
+    outline: none;
+}
 
-.c-input:focus {}
+.c-input:focus {
+    border-color: #3385FF;
+    box-shadow: 0 0 0 3px #3385FF;
+    box-shadow: 0 0 0 3px rgba(51, 133, 255, .3); 
+}
 
 /*
     Component: Label
@@ -481,6 +586,7 @@ a:focus {
 .c-button:active {}
 
 .c-button--block {}
+
 
 /*------------------------------------*\
 #UTILITIES
