@@ -603,7 +603,7 @@
     border: 1px solid var(--global-color-alpha-dark);
     color: #ffffff;
     border-radius: 3px;
-    line-height: 24px;
+    line-height: var(--global-line-height-xl);
     padding: 11px 16px;
   }
   .c-butten-box {
