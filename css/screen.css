@@ -1,1045 +1,1087 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
+
 @font-face {
-    font-family: "inter";
-    src: url("../fonts/Inter-Regular.woff2") format("woff2");
+    font-family: 'Inter Web';
+    src: url('../fonts/Inter-Regular.woff2') format('woff2');
     font-weight: 400;
-}
-
-@font-face {
-    font-family: "inter";
-    src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: 'Inter Web';
+    src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
     font-weight: 700;
-}
+  }
+  
+  /*------------------------------------*\
+  #Variables
+  \*------------------------------------*/
+  
+  :root {
+    /* colors */
+    --global-color-alpha-light: #4f95ff;
+    --global-color-alpha: #3385ff;
+    --global-color-alpha-dark: #2e77e6;
+    --global-color-alpha-x-dark: #1b4186;
+    --global-color-neutral-xxxx-light: #f5f6fa;
+    --global-color-neutral-xxx-light: #e2e3e7;
+    --global-color-neutral-xx-light: #caccd4;
+    --global-color-neutral-x-light: #b5b6c0;
+    --global-color-neutral-light: #a0a1ad;
+    --global-color-neutral: #8b8c9a;
+    --global-color-neutral-dark: #757787;
+    --global-color-neutral-x-dark: #606274;
+    --global-color-neutral-xx-dark: #4b4c60;
+    --global-color-neutral-xxx-dark: #35374d;
+    --global-color-neutral-xxxx-dark: #20223a;
+    accent-color: var(--global-color-alpha);
 
-/*------------------------------------*\
-#Variables
-\*------------------------------------*/
+    /* baseline */
+    --global-basline: 8px;
 
-:root {
-    /* light theme */
-    --golabl-background: #F5F6FA;
-    --global-text-color: #20223a;
-    --global-selection-background: #3385FF;
-    --global-link-color: #3385FF;
+    /* calc whitespace */
+    --global-whitespace: calc(var(--global-basline) * 3); /* = 24px */
+    --global-whitespace-xs: calc(var(--global-whitespace) / 6); /* = 4px */
+    --global-whitespace-sm: calc(var(--global-whitespace-xs) * 2); /* = 8px */
+    --global-whitespace-md: calc(var(--global-whitespace-sm) * 2); /* = 16px */
+    --global-whitespace-lg: calc(var(--global-whitespace-md) * 2); /* = 32px */   
+    --global-whitespace-xl: calc(var(--global-whitespace-md) * 3); /* = 48px */    
+    --global-whitespace-xxl: calc(var(--global-whitespace-lg) * 2); /* = 64px */
 
-
-    /* dark theme */
-}
-
-/* CSS variables here */
-
-/*------------------------------------*\
-#GENERIC
-\*------------------------------------*/
-
-/*
-    Generic: Page
-    ---
-    Global page styles + universal box-sizing:
-*/
-
-html {
+    /* calc line-heigt */
+    --global-line-height: calc(var(--global-basline) * 3); /* = 24px */
+    --global-line-height-xs: calc(var(--global-line-height) / 6); /* = 4px */
+    --global-line-height-sm: calc(var(--global-line-height-xs) * 2); /* = 8px */
+    --global-line-height-md: calc(var(--global-line-height-sm) * 2); /* = 16px */
+    --global-line-height-lg: calc(var(--global-line-height-md) * 4.5); /* = 18px */
+    --global-line-height-xl: calc(var(--global-line-height-sm) * 3); /* = 24px */
+    --global-line-height-xxl: calc(var(--global-line-height-md) * 2); /* = 32px */
+  }
+  
+  /* CSS variables here */
+  
+  /*------------------------------------*\
+  #GENERIC
+  \*------------------------------------*/
+  
+  /*
+      Generic: Page
+      ---
+      Global page styles + universal box-sizing:
+  */
+  
+  html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: "inter", sans-serif;
-    color: grey;
+    font-family: 'Inter Web', Helvetica, arial, sans-serif;
+    color: var(--global-color-neutral-xxxx-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--golabl-background);
-}
-
-*,
-*:before,
-*:after {
+    background-color: var(--global-color-neutral-xxxx-light);
+  }
+  
+  *,
+  *:before,
+  *:after {
     box-sizing: inherit;
-}
-
-/*
-* Remove text-shadow in selection highlight:
-* https://twitter.com/miketaylr/status/12228805301
-*
-* Customize the background color to match your design.
-*/
-
-::-moz-selection {
-    background: var(--global-selection-background);
+  }
+  
+  /*
+  * Remove text-shadow in selection highlight:
+  * https://twitter.com/miketaylr/status/12228805301
+  *
+  * Customize the background color to match your design.
+  */
+  
+  ::selection {
+    background: var(--global-color-alpha);
     color: white;
     text-shadow: none;
-}
-
-::selection {
-    background: var(--global-selection-background);
-    color: white;
-    text-shadow: none;
-}
-
-/*------------------------------------*\
-#Elements
-\*------------------------------------*/
-
-/*
-Elements: Images
----
-Default markup for images to make them responsive
-*/
-
-img {
+  }
+  
+  /*------------------------------------*\
+  #Elements
+  \*------------------------------------*/
+  
+  /*
+  Elements: Images
+  ---
+  Default markup for images to make them responsive
+  */
+  
+  img {
     max-width: 100%;
     vertical-align: top;
-}
-
-/*
-    Elements: typography
-    ---
-    Default markup for typographic elements
-*/
-
-h1,
-h2,
-h3 {
+  }
+  
+  /*
+      Elements: typography
+      ---
+      Default markup for typographic elements
+  */
+  
+  h1,
+  h2,
+  h3 {
     font-weight: 600;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 36px;
     line-height: 48px;
     margin: 0 0 24px;
-}
-
-h2 {
+  }
+  
+  h2 {
     font-size: 32px;
     line-height: 40px;
     margin: 0 0 24px;
-}
-
-h3 {
+  }
+  
+  h3 {
     font-size: 26px;
     line-height: 32px;
     margin: 0 0 24px;
-}
-
-h4,
-h5,
-h6 {
+  }
+  
+  h4,
+  h5,
+  h6 {
     font-size: 20px;
     line-height: 24px;
     margin: 0 0 24px;
-}
-
-p,
-ol,
-ul,
-dl,
-table,
-address,
-figure {
+  }
+  
+  p,
+  ol,
+  ul,
+  dl,
+  table,
+  address,
+  figure {
     margin: 0 0 24px;
-}
-
-ul,
-ol {
+  }
+  
+  ul,
+  ol {
     padding-left: 24px;
-}
-
-li ul,
-li ol {
+  }
+  
+  li ul,
+  li ol {
     margin-bottom: 0;
-}
-
-blockquote {
+  }
+  
+  blockquote {
     font-style: normal;
     font-size: 23px;
     line-height: 32px;
     margin: 0 0 24px;
-}
-
-blockquote * {
+  }
+  
+  blockquote * {
     font-size: inherit;
     line-height: inherit;
-}
-
-figcaption {
+  }
+  
+  figcaption {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
     margin-top: 8px;
-}
-
-hr {
+  }
+  
+  hr {
     border: 0;
     height: 1px;
     background: LightGrey;
     margin: 0 0 24px;
-}
-
-a {
-    color: var(--global-link-color);
-    transition: all .1s ease-in-out;
-}
-
-a:visited,
-a:active {
-    color: HotPink;
-}
-
-a:hover,
-a:focus {
-    color: DeepPink;
-}
-
-label,
-input {
+  }
+  
+  a {
+    color: var(--global-color-alpha);
+    transition: all 0.1s ease-in-out;
+  }
+  
+  a:visited,
+  a:active {
+    color: var(--global-color-alpha);
+  }
+  
+  a:hover,
+  a:focus {
+    color: var(--global-color-alpha-light);
+  }
+  
+  label,
+  input {
     display: block;
-}
-
-
-/*------------------------------------*\
-#OBJECTS
-\*------------------------------------*/
-
-/*
-    Objects: Row
-    ---
-    Creates a horizontal row that stretches the viewport and adds padding around children
-*/
-
-.o-row {
+  }
+  
+  /*------------------------------------*\
+  #OBJECTS
+  \*------------------------------------*/
+  
+  /*
+      Objects: Row
+      ---
+      Creates a horizontal row that stretches the viewport and adds padding around children
+  */
+  
+  .o-row {
     position: relative;
     padding: 24px 24px 0;
-}
-
-.o-row--login {
+  }
+  
+  .o-row--login {
     /* stuff here to align the card */
-}
-
-/* size modifiers */
-
-.o-row--lg {
+  }
+  
+  /* size modifiers */
+  
+  .o-row--lg {
     padding-top: 48px;
     padding-bottom: 24px;
-}
-
-.o-row--xl {
+  }
+  
+  .o-row--xl {
     padding-top: 72px;
     padding-bottom: 48px;
-}
-
-@media (min-width: 768px) {
+  }
+  
+  @media (min-width: 768px) {
     .o-row {
-        padding-left: 48px;
-        padding-right: 48px;
+      padding-left: 48px;
+      padding-right: 48px;
     }
-}
-
-@media (min-width: 992px) {
+  }
+  
+  @media (min-width: 992px) {
     .o-row--xl {
-        padding-top: 96px;
-        padding-bottom: 72px;
+      padding-top: 96px;
+      padding-bottom: 72px;
     }
-}
-
-/*
-    Objects: Container
-    ---
-    Creates a horizontal container that sets de global max-width
-*/
-
-.o-container {
+  }
+  
+  /*
+      Objects: Container
+      ---
+      Creates a horizontal container that sets de global max-width
+  */
+  
+  .o-container {
     margin-left: auto;
     margin-right: auto;
     max-width: 79.5em;
     /* 79.5 * 16px = 1272 */
     width: 100%;
-}
-
-/*
-    Objects: section
-    ---
-    Creates vertical whitespace between adjacent sections inside a row
-*/
-
-.o-section {
+  }
+  
+  /*
+      Objects: section
+      ---
+      Creates vertical whitespace between adjacent sections inside a row
+  */
+  
+  .o-section {
     position: relative;
-}
-
-.o-section+.o-section {
+  }
+  
+  .o-section + .o-section {
     padding-top: 24px;
-}
-
-@media (min-width: 768px) {
-
-    .o-section--lg+.o-section--lg,
-    .o-section--xl+.o-section--xl {
-        padding-top: 48px;
+  }
+  
+  @media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+      padding-top: 48px;
     }
-}
-
-@media (min-width: 992px) {
-    .o-section--xl+.o-section--xl {
-        padding-top: 72px;
+  }
+  
+  @media (min-width: 992px) {
+    .o-section--xl + .o-section--xl {
+      padding-top: 72px;
     }
-}
-
-/*
-    Objects: Layout
-    ---
-    The layout object provides us with a column-style layout system. This object
-    contains the basic structural elements, but classes should be complemented
-    with width utilities
-*/
-
-.o-layout {
+  }
+  
+  /*
+      Objects: Layout
+      ---
+      The layout object provides us with a column-style layout system. This object
+      contains the basic structural elements, but classes should be complemented
+      with width utilities
+  */
+  
+  .o-layout {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-}
-
-.o-layout__item {
+  }
+  
+  .o-layout__item {
     width: 100%;
-}
-
-/* gutter modifiers, these affect o-layout__item too */
-
-.o-layout--gutter {
+  }
+  
+  /* gutter modifiers, these affect o-layout__item too */
+  
+  .o-layout--gutter {
     margin: 0 -12px;
-}
-
-.o-layout--gutter>.o-layout__item {
+  }
+  
+  .o-layout--gutter > .o-layout__item {
     padding: 0 12px;
-}
-
-.o-layout--gutter-sm {
+  }
+  
+  .o-layout--gutter-sm {
     margin: 0 -6px;
-}
-
-.o-layout--gutter-sm>.o-layout__item {
+  }
+  
+  .o-layout--gutter-sm > .o-layout__item {
     padding: 0 6px;
-}
-
-.o-layout--gutter-lg {
+  }
+  
+  .o-layout--gutter-lg {
     margin: 0 -24px;
-}
-
-.o-layout--gutter-lg>.o-layout__item {
+  }
+  
+  .o-layout--gutter-lg > .o-layout__item {
     padding: 0 24px;
-}
-
-.o-layout--gutter-xl {
+  }
+  
+  .o-layout--gutter-xl {
     margin: 0 -48px;
-}
-
-.o-layout--gutter-xl>.o-layout__item {
+  }
+  
+  .o-layout--gutter-xl > .o-layout__item {
     padding: 0 48px;
-}
-
-/* reverse horizontal row modifier */
-
-.o-layout--row-reverse {
+  }
+  
+  /* reverse horizontal row modifier */
+  
+  .o-layout--row-reverse {
     flex-direction: row-reverse;
-}
-
-/* Horizontal alignment modifiers*/
-
-.o-layout--justify-start {
+  }
+  
+  /* Horizontal alignment modifiers*/
+  
+  .o-layout--justify-start {
     justify-content: flex-start;
-}
-
-.o-layout--justify-end {
+  }
+  
+  .o-layout--justify-end {
     justify-content: flex-end;
-}
-
-.o-layout--justify-center {
+  }
+  
+  .o-layout--justify-center {
     justify-content: center;
-}
-
-.o-layout--justify-space-around {
+  }
+  
+  .o-layout--justify-space-around {
     justify-content: space-around;
-}
-
-.o-layout--justify-space-evenly {
+  }
+  
+  .o-layout--justify-space-evenly {
     justify-content: space-evenly;
-}
-
-.o-layout--justify-space-between {
+  }
+  
+  .o-layout--justify-space-between {
     justify-content: space-between;
-}
-
-/* Vertical alignment modifiers */
-
-.o-layout--align-start {
+  }
+  
+  /* Vertical alignment modifiers */
+  
+  .o-layout--align-start {
     align-items: flex-start;
-}
-
-.o-layout--align-end {
+  }
+  
+  .o-layout--align-end {
     align-items: flex-end;
-}
-
-.o-layout--align-center {
+  }
+  
+  .o-layout--align-center {
     align-items: center;
-}
-
-.o-layout--align-baseline {
+  }
+  
+  .o-layout--align-baseline {
     align-items: baseline;
-}
-
-/* Vertical alignment modifiers that only work if there is one than one flex item */
-
-.o-layout--align-content-start {
+  }
+  
+  /* Vertical alignment modifiers that only work if there is one than one flex item */
+  
+  .o-layout--align-content-start {
     align-content: start;
-}
-
-.o-layout--align-content-end {
+  }
+  
+  .o-layout--align-content-end {
     align-content: end;
-}
-
-.o-layout--align-content-center {
+  }
+  
+  .o-layout--align-content-center {
     align-content: center;
-}
-
-.o-layout--align-content-space-around {
+  }
+  
+  .o-layout--align-content-space-around {
     align-content: space-around;
-}
-
-.o-layout--align-content-space-between {
+  }
+  
+  .o-layout--align-content-space-between {
     align-content: space-between;
-}
-
-/*
-    Objects: List
-    ---
-    Small reusable object to remove default list styling from lists
-*/
-
-.o-list {
+  }
+  
+  /*
+      Objects: List
+      ---
+      Small reusable object to remove default list styling from lists
+  */
+  
+  .o-list {
     list-style: none;
     padding: 0;
-}
-
-/*
-    Object: Button reset
-    ---
-    Small button reset object
-*/
-
-.o-button-reset {
+  }
+  
+  /*
+      Object: Button reset
+      ---
+      Small button reset object
+  */
+  
+  .o-button-reset {
     border: none;
     margin: 0;
     padding: 0;
     width: auto;
     overflow: visible;
     background: transparent;
-
+  
     /* inherit font & color from ancestor */
     color: inherit;
     font: inherit;
-
+  
     /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
     line-height: normal;
-
+  
     /* Corrects font smoothing for webkit */
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
-
+  
     /* Corrects inability to style clickable `input` types in iOS */
     -webkit-appearance: none;
-}
-
-
-.o-button-sign{
-    background-color: #2E77E6;
-    color: white;
-    width: 100%;
-    padding: 14px 0;
-}
-
-/*------------------------------------*\
-#COMPONENTS
-\*------------------------------------*/
-
-/*
-    Component: Logo
-    ---
-    Website main logo
-*/
-
-.c-logo{
+  }
+  
+  /*------------------------------------*\
+  #COMPONENTS
+  \*------------------------------------*/
+  
+  /*
+      Component: Logo
+      ---
+      Website main logo
+  */
+  
+  .c-logo {
     height: 24px;
     display: flex;
     justify-content: center;
-}
-
-.c-logo__symbool{
-    line-height: 100%;
-    display: block;
-}
-
-.c-logo__path--1{
-    fill: #20223a;
-}
-
-.c-logo__path--2{
-    fill: #3385FF;
-}
-
-.c-logo__path--3{
-    fill: #1B4186;
-}
-
-/*
-    Component: Card
-    ---
-    Card with box shadow
-*/
-
-.c-card{
+  }
+  
+  .c-logo__symbol {
+    height: 100%;
+  }
+  
+  .c-logo__path--1 {
+    fill: var(--global-color-neutral-xxxx-dark);
+  }
+  .c-logo__path--2 {
+    fill: var(--global-color-alpha);
+  }
+  .c-logo__path--3 {
+    fill: var(--global-color-alpha-x-dark);
+  }
+  /*
+      Component: Card
+      ---
+      Card with box shadow
+  */
+  .c-card {
     background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 2px 4px rgb( 0, 0, 0 / .1);
-    box-shadow: 0 2px 4px rgba( 0, 0, 0, .1);
-}
-
-.c-card__header {
-    padding: 48px 48px 0;
-}
-
-.c-card__body {
-    padding: 48px 48px 24px;
-}
-
-.c-card__footer {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  }
+  .c-card__body {
+    padding: var(--global-whitespace) var(--global-whitespace-xl);
+  }
+  
+  .c-card__title {
     display: flex;
     justify-content: center;
-    padding: 24px;
-}
-
-/*
-    Component: Forms
-    ---
-    Everything form related here
-*/
-
-.c-form-field--option {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: var(--global-line-height-lg);
+    padding: var(--global-whitespace-xl) var(--global-whitespace-xl) 0px var(--global-whitespace-xl);
+  }
+  .c-card__footer {
+    color: var(--global-color-neutral-dark);
     display: flex;
-    gap: 8px;
-}
-
-form{
-
-}
-
-/*
-    Component: Input
-    ---
-    Class to put on all input="text" like form inputs
-*/
-
-.c-input {
-    /* safari */
+    justify-content: center;
+    padding: var(--global-whitespace) var(--global-whitespace) 0 var(--global-whitespace);
+    border-top: 1px solid var(--global-color-neutral-xxx-light);
+  }
+  /*
+      Component: Forms
+      ---
+      Everything form related here
+  */
+  
+  .c-form-field--options {
+    display: flex;
+    gap: var(--global-basline);
+  }
+  
+  /*
+      Component: Input
+      ---
+      Class to put on all input="text" like form inputs
+  */
+  
+  .c-input {
     -webkit-appearance: none;
-    /* firefox */
     -moz-appearance: none;
-    /*  */
     appearance: none;
     width: 100%;
-    border: 1px solid #E2E3E7;
-    border-radius: 2px;
-    font-family: "inter";
+    border: 1px solid #e2e3e7;
+    border-radius: 3px;
+    /* height: 48px; */
+    line-height: var(--global-line-height-xl);
+    padding: 11px 16px;
+    font-family: 'Inter Web', sans-serif;
+    outline: none;
+  }
+  
+  .c-input:focus {
+    border-color: var(--global-color-alpha);
+    /* box-shadow: 0 0 0 3px #4f95ff4a; */
+    box-shadow: 0 0 0 3px rgba(51, 133, 255, 0.3);
+  }
+  
+  /*
+      Component: Label
+      ---
+      Class to put on all form labels
+  */
+  
+  .c-label {
+    font-size: 14px;
+    line-height: var(--global-line-height-md);
+    margin-bottom: 8px;
+    color: var(--global-color-neutral-x-dark);
+  }
+  
+  .c-label--options {
+    margin-bottom: 0;
+  }
+  /* If a input is focused within the form-field class change te color of the label */
+  
+  .c-form-field:focus-within .c-label {
+  }
+  
+  /*
+      Component: Button
+      ---
+      Class to put on form buttons or links
+  */
+  
+  .c-button {
+    outline: none;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    background-color: var(--global-color-alpha);
+    border: 1px solid var(--global-color-alpha-dark);
+    color: #ffffff;
+    border-radius: 3px;
     line-height: 24px;
     padding: 11px 16px;
-    outline: none;
-}
-
-.c-input:focus {
-    border-color: #3385FF;
-    box-shadow: 0 0 0 3px #3385FF;
-    box-shadow: 0 0 0 3px rgba(51, 133, 255, .3); 
-}
-
-/*
-    Component: Label
-    ---
-    Class to put on all form labels
-*/
-
-.c-label {
+  }
+  .c-butten-box {
+    margin-bottom: 16px;
+  }
+  
+  .c-button:hover {
+    border: 1px solid var(--global-color-alpha-dark);
+  }
+  
+  .c-button:focus {
+    border: 1px solid var(--global-color-alpha-dark);
+    box-shadow: 0 0 0 3px rgba(51, 133, 255, 0.49);
+  }
+  
+  .c-button:active {
+    border: 1px solid var(--global-color-alpha-dark);
+    box-shadow: none;
+  }
+  
+  .c-button--block {
+  }
+  
+  /*------------------------------------*\
+  #UTILITIES
+  \*------------------------------------*/
+  .u-heigt-hull {
+    min-height: 100vh;
+  }
+  .u-tekst-height {
     font-size: 14px;
-    line-height: 16px;
-    margin-bottom: 8px;
-    color: #606274;
-}
-
-/* If a input is focused within the form-field class change te color of the label */
-
-.c-form-field:focus-within .c-label {}
-
-/*
-    Component: Button
-    ---
-    Class to put on form buttons or links
-*/
-
-.c-button {}
-
-.c-button:hover {}
-
-.c-button:focus {}
-
-.c-button:active {}
-
-.c-button--block {}
-
-
-/*------------------------------------*\
-#UTILITIES
-\*------------------------------------*/
-
-/*
-    Utilities: color
-    ---
-    Utility classes to put specific colors onto elements
-*/
-
-.u-color-neutral-base {
+  }
+  .u-text-center {
+    display: flex;
+    justify-content: center;
+  }
+  /*
+      Utilities: color
+      ---
+      Utility classes to put specific colors onto elements
+  */
+  
+  .u-color-neutral-base {
     color: Silver;
-}
-
-.u-color-neutral-dark {
+  }
+  
+  .u-color-neutral-dark {
     color: Black;
-}
-
-/*
-    Utilities: spacing
-    ---
-    Utility classes to put specific margins and paddings onto elements
-*/
-
-.u-pt-clear {
+  }
+  
+  /*
+      Utilities: spacing
+      ---
+      Utility classes to put specific margins and paddings onto elements
+  */
+  
+  .u-pt-clear {
     padding-top: 0 !important;
-}
-
-.u-mb-clear {
+  }
+  
+  .u-mb-clear {
     margin-bottom: 0 !important;
-}
-
-.u-mb-xs {
+  }
+  
+  .u-mb-xs {
     margin-bottom: 4px !important;
-}
-
-.u-mb-sm {
+  }
+  
+  .u-mb-sm {
     margin-bottom: 8px !important;
-}
-
-.u-mb-md {
+  }
+  
+  .u-mb-md {
     margin-bottom: 16px !important;
-}
-
-.u-mb-lg {
+  }
+  
+  .u-mb-lg {
     margin-bottom: 32px !important;
-}
-
-.u-mb-xl {
+  }
+  
+  .u-mb-xl {
     margin-bottom: 48px !important;
-}
-
-/*
-    Utilities: max-width
-    ---
-    Utility classes to put specific max widths onto elements
-*/
-
-.u-max-width-xs {
+  }
+  
+  /*
+      Utilities: max-width
+      ---
+      Utility classes to put specific max widths onto elements
+  */
+  
+  .u-max-width-xs {
     max-width: 27em !important;
-}
-
-.u-max-width-sm {
+  }
+  
+  .u-max-width-sm {
     max-width: 39em !important;
-}
-
-.u-max-width-md {
+  }
+  
+  .u-max-width-md {
     max-width: 50em !important;
-}
-
-.u-max-width-lg {
+  }
+  
+  .u-max-width-lg {
     max-width: 63.5em !important;
-}
-
-.u-max-width-none {
+  }
+  
+  .u-max-width-none {
     max-width: none !important;
-}
-
-
-/*
-    Utilities: align
-    ---
-    Utility classes align text or components
-*/
-
-.u-align-text-center {
+  }
+  
+  /*
+      Utilities: align
+      ---
+      Utility classes align text or components
+  */
+  
+  .u-align-text-center {
     text-align: center;
-}
-
-.u-align-center {
+  }
+  
+  .u-align-center {
     margin: 0 auto;
-}
-
-/*
-    Utilities: text
-    Utility classes to create smaller or bigger test
-*/
-
-.u-text-sm {
+  }
+  
+  /*
+      Utilities: text
+      Utility classes to create smaller or bigger test
+  */
+  
+  .u-text-sm {
     font-size: 14px;
-}
-
-/*
-    Utility: Widths
-    ---
-    Utility classes to put specific widths onto elements
-    Will be mostly used on o-layout__item
-*/
-
-.u-width-auto {
+  }
+  
+  /*
+      Utility: Widths
+      ---
+      Utility classes to put specific widths onto elements
+      Will be mostly used on o-layout__item
+  */
+  
+  .u-width-auto {
     width: auto !important;
-}
-
-.u-1-of-2 {
+  }
+  
+  .u-1-of-2 {
     width: 50% !important;
-}
-
-.u-1-of-3 {
+  }
+  
+  .u-1-of-3 {
     width: 33.3333333333% !important;
-}
-
-.u-2-of-3 {
+  }
+  
+  .u-2-of-3 {
     width: 66.6666666667% !important;
-}
-
-.u-1-of-4 {
+  }
+  
+  .u-1-of-4 {
     width: 25% !important;
-}
-
-.u-3-of-4 {
+  }
+  
+  .u-3-of-4 {
     width: 75% !important;
-}
-
-.u-1-of-5 {
+  }
+  
+  .u-1-of-5 {
     width: 20% !important;
-}
-
-.u-2-of-5 {
+  }
+  
+  .u-2-of-5 {
     width: 40% !important;
-}
-
-.u-3-of-5 {
+  }
+  
+  .u-3-of-5 {
     width: 60% !important;
-}
-
-.u-4-of-5 {
+  }
+  
+  .u-4-of-5 {
     width: 80% !important;
-}
-
-.u-1-of-6 {
+  }
+  
+  .u-1-of-6 {
     width: 16.6666666667% !important;
-}
-
-.u-5-of-6 {
+  }
+  
+  .u-5-of-6 {
     width: 83.3333333333% !important;
-}
-
-@media (min-width: 576px) {
+  }
+  
+  @media (min-width: 576px) {
     .u-1-of-2-bp1 {
-        width: 50% !important;
+      width: 50% !important;
     }
-
+  
     .u-1-of-3-bp1 {
-        width: 33.3333333333% !important;
+      width: 33.3333333333% !important;
     }
-
+  
     .u-2-of-3-bp1 {
-        width: 66.6666666667% !important;
+      width: 66.6666666667% !important;
     }
-
+  
     .u-1-of-4-bp1 {
-        width: 25% !important;
+      width: 25% !important;
     }
-
+  
     .u-3-of-4-bp1 {
-        width: 75% !important;
+      width: 75% !important;
     }
-
+  
     .u-1-of-5-bp1 {
-        width: 20% !important;
+      width: 20% !important;
     }
-
+  
     .u-2-of-5-bp1 {
-        width: 40% !important;
+      width: 40% !important;
     }
-
+  
     .u-3-of-5-bp1 {
-        width: 60% !important;
+      width: 60% !important;
     }
-
+  
     .u-4-of-5-bp1 {
-        width: 80% !important;
+      width: 80% !important;
     }
-
+  
     .u-1-of-6-bp1 {
-        width: 16.6666666667% !important;
+      width: 16.6666666667% !important;
     }
-
+  
     .u-5-of-6-bp1 {
-        width: 83.3333333333% !important;
+      width: 83.3333333333% !important;
     }
-}
-
-@media (min-width: 768px) {
+  }
+  
+  @media (min-width: 768px) {
     .u-1-of-2-bp2 {
-        width: 50% !important;
+      width: 50% !important;
     }
-
+  
     .u-1-of-3-bp2 {
-        width: 33.3333333333% !important;
+      width: 33.3333333333% !important;
     }
-
+  
     .u-2-of-3-bp2 {
-        width: 66.6666666667% !important;
+      width: 66.6666666667% !important;
     }
-
+  
     .u-1-of-4-bp2 {
-        width: 25% !important;
+      width: 25% !important;
     }
-
+  
     .u-3-of-4-bp2 {
-        width: 75% !important;
+      width: 75% !important;
     }
-
+  
     .u-1-of-5-bp2 {
-        width: 20% !important;
+      width: 20% !important;
     }
-
+  
     .u-2-of-5-bp2 {
-        width: 40% !important;
+      width: 40% !important;
     }
-
+  
     .u-3-of-5-bp2 {
-        width: 60% !important;
+      width: 60% !important;
     }
-
+  
     .u-4-of-5-bp2 {
-        width: 80% !important;
+      width: 80% !important;
     }
-
+  
     .u-1-of-6-bp2 {
-        width: 16.6666666667% !important;
+      width: 16.6666666667% !important;
     }
-
+  
     .u-5-of-6-bp2 {
-        width: 83.3333333333% !important;
+      width: 83.3333333333% !important;
     }
-}
-
-@media (min-width: 992px) {
+  }
+  
+  @media (min-width: 992px) {
     .u-1-of-2-bp3 {
-        width: 50% !important;
+      width: 50% !important;
     }
-
+  
     .u-1-of-3-bp3 {
-        width: 33.3333333333% !important;
+      width: 33.3333333333% !important;
     }
-
+  
     .u-2-of-3-bp3 {
-        width: 66.6666666667% !important;
+      width: 66.6666666667% !important;
     }
-
+  
     .u-1-of-4-bp3 {
-        width: 25% !important;
+      width: 25% !important;
     }
-
+  
     .u-3-of-4-bp3 {
-        width: 75% !important;
+      width: 75% !important;
     }
-
+  
     .u-1-of-5-bp3 {
-        width: 20% !important;
+      width: 20% !important;
     }
-
+  
     .u-2-of-5-bp3 {
-        width: 40% !important;
+      width: 40% !important;
     }
-
+  
     .u-3-of-5-bp3 {
-        width: 60% !important;
+      width: 60% !important;
     }
-
+  
     .u-4-of-5-bp3 {
-        width: 80% !important;
+      width: 80% !important;
     }
-
+  
     .u-1-of-6-bp3 {
-        width: 16.6666666667% !important;
+      width: 16.6666666667% !important;
     }
-
+  
     .u-5-of-6-bp3 {
-        width: 83.3333333333% !important;
+      width: 83.3333333333% !important;
     }
-}
-
-@media (min-width: 1200px) {
+  }
+  
+  @media (min-width: 1200px) {
     .u-1-of-2-bp4 {
-        width: 50% !important;
+      width: 50% !important;
     }
-
+  
     .u-1-of-3-bp4 {
-        width: 33.3333333333% !important;
+      width: 33.3333333333% !important;
     }
-
+  
     .u-2-of-3-bp4 {
-        width: 66.6666666667% !important;
+      width: 66.6666666667% !important;
     }
-
+  
     .u-1-of-4-bp4 {
-        width: 25% !important;
+      width: 25% !important;
     }
-
+  
     .u-3-of-4-bp4 {
-        width: 75% !important;
+      width: 75% !important;
     }
-
+  
     .u-1-of-5-bp4 {
-        width: 20% !important;
+      width: 20% !important;
     }
-
+  
     .u-2-of-5-bp4 {
-        width: 40% !important;
+      width: 40% !important;
     }
-
+  
     .u-3-of-5-bp4 {
-        width: 60% !important;
+      width: 60% !important;
     }
-
+  
     .u-4-of-5-bp4 {
-        width: 80% !important;
+      width: 80% !important;
     }
-
+  
     .u-1-of-6-bp4 {
-        width: 16.6666666667% !important;
+      width: 16.6666666667% !important;
     }
-
+  
     .u-5-of-6-bp4 {
-        width: 83.3333333333% !important;
+      width: 83.3333333333% !important;
     }
-}
-
-/*------------------------------------*\
-#MEDIA
-\*------------------------------------*/
-
-/*
-    Media Queries
-    ---
-    EXAMPLE Media Queries for Responsive Design.
-    These examples override the primary ('mobile first') styles.
-    USE THEM INLINE!
-*/
-
-/* Extra small devices (portrait phones, less than 576px)
-No media query since this is the default in mobile first design
-*/
-
-/* Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {}
-*/
-
-/* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
-*/
-
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
-
-/* Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
-*/
-
-/*
-    Print styles.
-    ---
-    Inlined to avoid the additional HTTP request:
-    http://www.phpied.com/delay-loading-your-print-css/
-*/
-
-@media print {
-
+  }
+  
+  /*------------------------------------*\
+  #MEDIA
+  \*------------------------------------*/
+  
+  /*
+      Media Queries
+      ---
+      EXAMPLE Media Queries for Responsive Design.
+      These examples override the primary ('mobile first') styles.
+      USE THEM INLINE!
+  */
+  
+  /* Extra small devices (portrait phones, less than 576px)
+  No media query since this is the default in mobile first design
+  */
+  
+  /* Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {}
+  */
+  
+  /* Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {}
+  */
+  
+  /* Large devices (landscape tablets, desktops, 992px and up)
+  @media (min-width: 992px) {}
+  */
+  
+  /* Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {}
+  */
+  
+  /*
+      Print styles.
+      ---
+      Inlined to avoid the additional HTTP request:
+      http://www.phpied.com/delay-loading-your-print-css/
+  */
+  
+  @media print {
     *,
     *:before,
     *:after {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
-        http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
+      background: transparent !important;
+      color: #000 !important;
+      /* Black prints faster:
+          http://www.sanbeiji.com/archives/953 */
+      box-shadow: none !important;
+      text-shadow: none !important;
     }
-
+  
     a,
     a:visited {
-        text-decoration: underline;
+      text-decoration: underline;
     }
-
+  
     a[href]:after {
-        content: " (" attr(href) ")";
+      content: ' (' attr(href) ')';
     }
-
+  
     abbr[title]:after {
-        content: " (" attr(title) ")";
+      content: ' (' attr(title) ')';
     }
-
+  
     /*
-    * Don't show links that are fragment identifiers,
-    * or use the `javascript:` pseudo protocol
-    */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
+      * Don't show links that are fragment identifiers,
+      * or use the `javascript:` pseudo protocol
+      */
+    a[href^='#']:after,
+    a[href^='javascript:']:after {
+      content: '';
     }
-
+  
     pre {
-        white-space: pre-wrap !important;
+      white-space: pre-wrap !important;
     }
-
+  
     pre,
     blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
+      border: 1px solid #999;
+      page-break-inside: avoid;
     }
-
+  
     /*
-    * Printing Tables:
-    * http://css-discuss.incutio.com/wiki/Printing_Tables
-    */
+      * Printing Tables:
+      * http://css-discuss.incutio.com/wiki/Printing_Tables
+      */
     thead {
-        display: table-header-group;
+      display: table-header-group;
     }
-
+  
     tr,
     img {
-        page-break-inside: avoid;
+      page-break-inside: avoid;
     }
-
+  
     p,
     h2,
     h3 {
-        orphans: 3;
-        widows: 3;
+      orphans: 3;
+      widows: 3;
     }
-
+  
     h2,
     h3 {
-        page-break-after: avoid;
+      page-break-after: avoid;
     }
-}
+  }
+  
