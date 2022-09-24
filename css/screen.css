@@ -57,6 +57,12 @@
     --global-line-height-lg: calc(var(--global-line-height-md) * 4.5); /* = 18px */
     --global-line-height-xl: calc(var(--global-line-height-sm) * 3); /* = 24px */
     --global-line-height-xxl: calc(var(--global-line-height-md) * 2); /* = 32px */
+
+    /* bordre-width */
+    --global-border-width: 1px;
+
+    /* padding */
+    --global-padding: 11px;
   }
   
   /* CSS variables here */
@@ -552,11 +558,11 @@
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: 1px solid #e2e3e7;
+    border: var(--global-border-width) solid #e2e3e7;
     border-radius: 3px;
     /* height: 48px; */
     line-height: var(--global-line-height-xl);
-    padding: 11px 16px;
+    padding: calc((48 * (var(--global-line-height-xl) / 48))/2) 16px;
     font-family: 'Inter Web', sans-serif;
     outline: none;
   }
