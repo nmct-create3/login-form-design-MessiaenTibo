@@ -20,6 +20,9 @@
   
   :root {
     /* colors */
+    --global-page-color: var(--color-neutral-xxxx-dark);
+    --global-page-backgroundColor: var(--color-neutral-xxxx-light);
+
     --global-color-alpha-light: #4f95ff;
     --global-color-alpha: #3385ff;
     --global-color-alpha-dark: #2e77e6;
@@ -64,7 +67,14 @@
     /* padding */
     --global-padding: 11px;
   }
-  
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+        --global-page-color: White;
+        --global-page-backgroundColor: var(--color-neutral-xxxx-dark);
+    }
+  }
+
   /* CSS variables here */
   
   /*------------------------------------*\
@@ -81,13 +91,17 @@
     font-size: 16px;
     line-height: 1.5;
     font-family: 'Inter Web', Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-xxxx-dark);
+    color: var(--global-page-color);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--global-color-neutral-xxxx-light);
+    background-color: var(--global-page-backgroundColor);
   }
-  
+  @media (prefers-color-scheme: dark) {
+    html {
+        background-color: var(--global-color-neutral-xxxx-dark);
+    }
+  }
   *,
   *:before,
   *:after {
@@ -209,6 +223,7 @@
   a {
     color: var(--global-color-alpha);
     transition: all 0.1s ease-in-out;
+    text-decoration: none;
   }
   
   a:visited,
@@ -498,14 +513,23 @@
   }
   
   .c-logo__path--1 {
-    fill: var(--global-color-neutral-xxxx-dark);
+    fill: var(--logo__path--1--fill, var(--global-color-neutral-xxxx-dark));
   }
   .c-logo__path--2 {
-    fill: var(--global-color-alpha);
+    fill: var(--logo__path--2--fill, var(--global-color-alpha));
   }
   .c-logo__path--3 {
-    fill: var(--global-color-alpha-x-dark);
+    fill: var(--logo__path--3--fill, var(--global-color-alpha-x-dark));
   }
+
+  @media (prefers-color-scheme: dark) {
+    .c-logo {
+      --logo__path--1--fill: White;
+      --logo__path--2--fill: var(--logo__path--1--fill);
+      --logo__path--3--fill: var(--logo__path--1--fill);
+    }
+  }
+
   /*
       Component: Card
       ---
@@ -516,6 +540,12 @@
     border-radius: 3px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .c-card {
+      background-color: var(--global-color-neutral-xxx-dark);
+    }
   }
   .c-card__body {
     padding: var(--global-whitespace) var(--global-whitespace-xl);
@@ -536,6 +566,13 @@
     padding: var(--global-whitespace) var(--global-whitespace) 0 var(--global-whitespace);
     border-top: 1px solid var(--global-color-neutral-xxx-light);
   }
+
+  @media (prefers-color-scheme: dark) {
+    .c-card__footer {
+      border-top-color: var(--global-color-neutral-xxxx-dark);
+    }
+  }
+
   /*
       Component: Forms
       ---
@@ -558,7 +595,7 @@
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: var(--global-border-width) solid #e2e3e7;
+    border: var(--global-border-width) solid var(--global-color-neutral-xxx-light);
     border-radius: 3px;
     /* height: 48px; */
     line-height: var(--global-line-height-xl);
@@ -566,6 +603,13 @@
     font-family: 'Inter Web', sans-serif;
     outline: none;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .c-input{
+      border-color: var(--global-color-neutral-xxx-dark);
+      background-color: var(--global-color-neutral-xxxx-dark);
+    }
+  }  
   
   .c-input:focus {
     border-color: var(--global-color-alpha);
@@ -585,6 +629,12 @@
     margin-bottom: 8px;
     color: var(--global-color-neutral-x-dark);
   }
+
+  @media (prefers-color-scheme: dark) {
+    .c-label{
+      color: var(--global-color-neutral-x-light);
+    }
+  }  
   
   .c-label--options {
     margin-bottom: 0;
@@ -1035,7 +1085,7 @@
   
     a,
     a:visited {
-      text-decoration: underline;
+      /* text-decoration: underline; */
     }
   
     a[href]:after {
